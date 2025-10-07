@@ -131,3 +131,67 @@ the playground is an orca-inspired sequencer for experimental live coding, acces
 **example**:
 1. click playground button.
 2. type:
+   - a4:440
+   - b2:220
+   - c6:880
+3. click run. hear notes: 440hz at beat 4, 220hz at beat 2, 880hz at beat 6.
+4. drag pattern blocks to grid at (2,4), (3,6), (4,2). link to piano. matches playground sequence.
+
+**for foley artists**: use playground to prototype sound effects. e.g., `a1:100` for low rumble, `b8:5000` for high click. export as wav or integrate into grid.
+
+## export
+
+click export wav in header to render the timeline to a 44.1khz/16-bit wav:
+- includes all clips, automation, and effects.
+- master with eq (e.g., +3db high shelf for clarity) and limiter (threshold -6db to prevent clipping).
+- download and review. re-export after tweaks.
+
+**example**:
+1. set eq high shelf to +3db, limiter threshold to -6db.
+2. click export wav. download `export.wav`.
+
+## creating a track
+
+**step-by-step**:
+1. drag piano (2,2), drum (4,2), bass (6,2).
+2. place patterns at (2,4), (3,4), (4,4) for piano melody. link to piano.
+3. place drum patterns at (4,3), (5,3) for rhythm. link to drum. upload `kick.wav`.
+4. place bass pattern at (6,5). link to bass. enable sidechain to drum.
+5. drag piano pattern to session view (track 1, scene 1) for live loop.
+6. drag patterns to timeline: piano (track 1, start: 0, duration: 4), drum (track 2, start: 4, duration: 4).
+7. double-click piano clip, automate cutoff with bezier curve (0.2 to 0.8 to 0.2).
+8. click add reverb, set wet to 0.5. click add eq, boost high shelf +3db. click add limiter.
+9. type “rise up” in footer, click add vocal.
+10. click playground, enter `a4:440`, run, then copy to grid.
+11. click export wav.
+
+**result**: a polished track with melody, rhythm, bass, vocals, automation, and mastering, ready for release.
+
+## tips for users
+
+- **beginners**: start with piano and drum blocks. use session view for loops, then timeline for arrangement. tweak params slowly.
+- **mixers**: use eq, limiter, and automation for professional mixes. sidechain for dynamic effects. export often to test.
+- **foley artists**: import sfx wavs, use playground for quick prototypes, automate pitch for dynamic sounds.
+- **coders**: extend `vst.js` with wasm plugins, add fft to `warping.js`, or implement websocket in `script.js` for collaboration.
+
+## ui snapshot
+
+to capture for `readme.md`:
+1. open `index.html` in chrome.
+2. drag piano (2,2), drum (4,2), bass (6,2), pattern (2,4). link pattern to piano.
+3. drag pattern to session view (track 1, scene 1).
+4. drag pattern to timeline (track 1, start: 0, duration: 4).
+5. double-click piano block to show param editor.
+6. double-click timeline clip to show automation editor, draw bezier curve.
+7. click playground, enter `a4:440` and `b2:220`.
+8. screenshot at 1280x720.
+
+the ui is black-and-white, lowercase, with grayscale blocks (piano: #666, drum: #888, bass: #aaa, pattern: #ddd) and transparent panels (rgba(255, 255, 255, 0.1)). it’s clean, nomadic, and easy on the eyes.
+
+## notes
+
+- playground is ideal for quick experimentation, especially for foley or live coding.
+- vst integration is basic (fm synth). coders can add real plugins (e.g., vital) via wasm.
+- automation curves support complex dynamics (e.g., filter sweeps, volume fades).
+- mastering suite (eq, limiter) ensures professional output.
+- for advanced warping, add fft-based beat detection in `warping.js`.
