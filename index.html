@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crunch daw</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>crunch daw</h1>
+            <div class="controls">
+                <button id="playBtn">play</button>
+                <button id="stopBtn">stop</button>
+                <button id="liveModeBtn">live mode</button>
+                <button id="exportBtn">export wav</button>
+                <button id="undoBtn">undo</button>
+                <button id="playgroundBtn">playground</button>
+                <select id="quantize">
+                    <option value="0">no quantize</option>
+                    <option value="0.25">1/4 beat</option>
+                    <option value="0.5">1/2 beat</option>
+                </select>
+            </div>
+        </header>
+
+        <div class="workspace">
+            <aside class="palette">
+                <h3>palette</h3>
+                <div class="blocks">
+                    <div class="block piano" draggable="true" data-type="piano">piano</div>
+                    <div class="block drum" draggable="true" data-type="drum">drum</div>
+                    <div class="block bass" draggable="true" data-type="bass">bass</div>
+                    <div class="block guitar" draggable="true" data-type="guitar">guitar</div>
+                    <div class="block pattern" draggable="true" data-type="pattern">pattern</div>
+                    <div class="block vocal" draggable="true" data-type="vocal">vocal</div>
+                    <div class="block master" draggable="true" data-type="master">master</div>
+                </div>
+            </aside>
+
+            <main class="grid-container">
+                <canvas id="grid" width="800" height="300"></canvas>
+                <div id="sessionView" class="session-view">
+                    <div class="scenes"></div>
+                </div>
+                <div id="timeline" class="timeline"></div>
+                <div id="automationEditor" class="automation-editor" style="display:none">
+                    <canvas id="automationCanvas" width="800" height="100"></canvas>
+                    <button id="closeAutomation">close</button>
+                </div>
+                <div class="tracks">
+                    <div class="track" id="track1">track 1 <input type="range" class="vol" min="0" max="1" step="0.01" value="1"><input type="range" class="pan" min="-1" max="1" step="0.01" value="0"></div>
+                    <div class="track" id="track2">track 2 <input type="range" class="vol" min="0" max="1" step="0.01" value="1"><input type="range" class="pan" min="-1" max="1" step="0.01" value="0"></div>
+                    <div class="track master-track" id="master">master <button id="addReverb">add reverb</button><button id="addDelay">add delay</button><button id="addEQ">add eq</button><button id="addLimiter">add limiter</button></div>
+                </div>
+            </main>
+
+            <aside class="editor" id="paramEditor">
+                <h3>parameter editor</h3>
+                <div id="params"></div>
+                <button id="loadVST">load vst</button>
+                <button id="savePreset">save preset</button>
+                <button id="closeEditor">close</button>
+            </aside>
+
+            <aside class="playground" id="playground" style="display:none">
+                <h3>playground</h3>
+                <textarea id="playgroundCode" rows="10" placeholder="type orca-like code. e.g., a4:440"></textarea>
+                <button id="runPlayground">run</button>
+                <button id="closePlayground">close</button>
+            </aside>
+        </div>
+
+        <footer>
+            <input type="text" id="vocalText" placeholder="enter vocal text.">
+            <button id="addVocal">add vocal</button>
+            <input type="file" id="audioImport" accept="audio/*">
+        </footer>
+    </div>
+
+    <script src="assets/instruments.js"></script>
+    <script src="assets/vocals.js"></script>
+    <script src="assets/effects.js"></script>
+    <script src="assets/warping.js"></script>
+    <script src="assets/vst.js"></script>
+    <script src="assets/audioUtils.js"></script>
+    <script src="assets/playground.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
