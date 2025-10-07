@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    font-family: helvetica, sans-serif;
+    background: black;
+    color: white;
+    overflow: hidden;
+}
+
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.controls button, .controls select {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background: #ccc;
+}
+
+.workspace {
+    flex: 1;
+    display: flex;
+}
+
+.palette {
+    width: 150px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    overflow-y: auto;
+}
+
+.blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.block {
+    padding: 0.75rem;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    cursor: grab;
+    text-align: center;
+}
+
+.block:hover {
+    background: #ccc;
+}
+
+.block.piano { background: #666; color: white; }
+.block.drum { background: #888; color: white; }
+.block.bass { background: #aaa; color: white; }
+.block.guitar { background: #ccc; color: black; }
+.block.pattern { background: #ddd; color: black; }
+.block.vocal { background: #eee; color: black; }
+.block.master { background: #fff; color: black; }
+
+.grid-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#grid {
+    border: 1px solid white;
+    background: black;
+    cursor: crosshair;
+}
+
+.session-view {
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.scenes {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.scene {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+.clip {
+    width: 80px;
+    height: 40px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+}
+
+.clip.playing {
+    background: #ccc;
+}
+
+.timeline {
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
+    overflow-x: auto;
+}
+
+.timeline-clip {
+    height: 80%;
+    background: white;
+    margin: 0 2px;
+    cursor: move;
+    min-width: 20px;
+}
+
+.automation-editor {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+}
+
+#automationCanvas {
+    border: 1px solid white;
+    background: black;
+}
+
+.tracks {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    gap: 1px;
+}
+
+.track {
+    flex: 1;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid white;
+}
+
+.track:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.master-track {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.master-track button {
+    margin-left: 10px;
+    background: white;
+    color: black;
+}
+
+.editor, .playground {
+    width: 200px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.editor.active, .playground.active {
+    display: flex;
+}
+
+.editor input[type="range"], .editor select, .playground textarea {
+    width: 100%;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+footer {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    gap: 1rem;
+}
+
+footer input {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    background: white;
+    color: black;
+}
+
+footer button {
+    padding: 0.5rem 1rem;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
