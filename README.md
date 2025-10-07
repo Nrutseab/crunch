@@ -1,3 +1,4 @@
+work in progress.
 # crunch daw
 
 crunch daw is a professional-grade, browser-based digital audio workstation designed for live performance and studio production. it’s intuitive, customizable, and nomadic, enabling fully mastered tracks on the go or in a professional studio without physical instruments. features include advanced bezier-based automation curves, a built-in mastering suite (eq, limiter), real vst plugin integration via webassembly, and a playground inspired by orca’s sequencer for experimentation. see tutorial.md for a detailed guide.
